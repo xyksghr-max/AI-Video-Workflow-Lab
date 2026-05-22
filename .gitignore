@@ -75,3 +75,6 @@ ComfyUI/custom_nodes/*/.git/
 
 # Allow explicit lightweight examples if needed.
 !assets/README.md
+
+# Third-party downloaded plugin bundles kept locally for reference/install.
+字字工作流插件/
