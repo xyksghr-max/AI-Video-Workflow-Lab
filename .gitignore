@@ -1,0 +1,77 @@
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+secrets/
+*.key
+*.pem
+*.p12
+*.token
+
+# Python / Node / editor noise
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large AI model files
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.bin
+*.engine
+*.trt
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Local heavy directories. Keep only placeholders.
+models/**
+!models/
+!models/.gitkeep
+outputs/**
+!outputs/
+!outputs/.gitkeep
+cache/**
+!cache/
+!cache/.gitkeep
+logs/**
+!logs/
+!logs/.gitkeep
+
+# ComfyUI heavy/runtime directories if a local copy is added later.
+ComfyUI/models/
+ComfyUI/output/
+ComfyUI/input/
+ComfyUI/temp/
+ComfyUI/custom_nodes/*/.git/
+
+# Media generated or collected during production. Track manifests instead.
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.wav
+*.mp3
+*.flac
+*.aac
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.psd
+
+# Allow explicit lightweight examples if needed.
+!assets/README.md
