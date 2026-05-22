@@ -4,6 +4,7 @@
 
 - 平台: AutoDL
 - 应用: zealman-ComfyUI
+- 应用ID: `BmAgGF99mx:v8.51`
 - 版本: v8.51
 - 作者: zealman
 - 区域: 西北B区
@@ -12,6 +13,7 @@
 - 参考价格: 约 ¥2.88/小时/每 GPU
 - 参考资源: vCPU 12~22 核, 内存 64~100 GB
 - 应用提示: 4090 / 5090 / 6000 / H800 可用
+- 开机启动命令: `bash /root/zealman-app/scripts/improved-autostart.sh`
 
 说明: 以上信息来自租机前截图, 最终以创建实例后的实际硬件、驱动、磁盘和应用目录为准。
 

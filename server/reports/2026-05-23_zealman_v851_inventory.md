@@ -11,6 +11,7 @@
 - 系统: Ubuntu, Linux kernel `5.15.0-78-generic`
 - 当前用户: `root`
 - AI 应用: Zealman ComfyUI v8.51
+- 应用 ID: `BmAgGF99mx:v8.51`
 - ComfyUI 根目录: `/root/ComfyUI`
 - Zealman 面板目录: `/root/zealman-app`
 - 工作流目录: `/root/ComfyUI/user/default/workflows`
@@ -72,6 +73,12 @@ Zealman 面板启动脚本:
 ```
 
 面板配置中 `autoStartComfyUI` 为 `true`, `enableSymlink` 为 `true`。
+
+AutoDL 开机启动命令:
+
+```bash
+bash /root/zealman-app/scripts/improved-autostart.sh
+```
 
 ## 工作流概况
 
