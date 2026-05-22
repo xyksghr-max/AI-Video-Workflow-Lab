@@ -18,6 +18,33 @@
 
 初步判断: 这个配置适合作为第一台验证服务器。48G 显存对 ComfyUI 视频工作流比较友好, 可以先做 Zealman 应用体检、已有工作流盘点和小分辨率图生视频/首尾帧视频测试。正式长视频、批量任务或更重模型, 等第一轮体检后再决定是否需要 96G 或 H800。
 
+## 第一批 48G 显存验证目标
+
+以下模型和能力作为 4090-48G 的首批候选验证目标。先按小分辨率、短帧数、低步数跑通, 再逐步提高质量参数。是否已安装、具体下载源、节点版本和工作流兼容性, 以服务器体检和实时核验结果为准。
+
+### Wan2.2 系列
+
+- Wan2.2-I2V-A14B FP8
+- Wan2.2-Animate-14B FP8
+- Wan2.2-T2V-A14B FP8
+- Wan2.2 Fun Control FP8
+- Wan2.2 Fun Inp / FLF2V FP8
+
+### LTX-2.3 系列
+
+- LTX-2.3 22B dev FP8
+- `ltx-2.3-22b-dev-fp8.safetensors`
+- `gemma_3_12B_it_fp4_mixed.safetensors`
+- `ltx-2.3-spatial-upscaler-x2-1.0.safetensors`
+
+### 建议验证顺序
+
+1. 先检查 Zealman 应用是否已经内置相关工作流、节点和模型。
+2. 先跑 Wan2.2 I2V/T2V 的极小测试, 验证 ComfyUI 基础视频链路。
+3. 再跑 Animate、Fun Control、Fun Inp / FLF2V, 验证动作、控制和首尾帧类能力。
+4. 最后验证 LTX-2.3 22B dev FP8 和空间超分, 记录显存、速度和质量上限。
+5. 通过后再决定是否下载缺失模型或扩展到批量生产参数。
+
 ## 初次登录后的检查项
 
 1. 磁盘:

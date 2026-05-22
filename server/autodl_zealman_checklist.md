@@ -15,6 +15,23 @@
 
 说明: 以上信息来自租机前截图, 最终以创建实例后的实际硬件、驱动、磁盘和应用目录为准。
 
+## 第一批目标模型/能力
+
+Wan2.2:
+- Wan2.2-I2V-A14B FP8
+- Wan2.2-Animate-14B FP8
+- Wan2.2-T2V-A14B FP8
+- Wan2.2 Fun Control FP8
+- Wan2.2 Fun Inp / FLF2V FP8
+
+LTX-2.3:
+- LTX-2.3 22B dev FP8
+- `ltx-2.3-22b-dev-fp8.safetensors`
+- `gemma_3_12B_it_fp4_mixed.safetensors`
+- `ltx-2.3-spatial-upscaler-x2-1.0.safetensors`
+
+状态: 候选验证。租机后先检查是否已内置, 未内置时再核验来源、体积、许可证、目标目录和下载方式。
+
 ## 登录后先确认
 
 - 当前用户和工作目录
