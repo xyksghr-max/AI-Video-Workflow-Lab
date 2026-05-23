@@ -6,6 +6,14 @@
 
 当前项目不默认使用 AutoDL 平台付费模型 API。外部 API 应使用用户明确指定的平台和密钥, 例如 GPT image2、MiniMax TTS、LLM、字幕、翻译等。除非用户明确批准, 不在 Zealman、Wuli 画布或 ComfyUI 节点里填写 `AUTODL_API_KEY`。
 
+字字动画、Geeknow 中转商、字字算力平台都只作为可选调用通道, 不是项目绑定路线。当前默认主线是:
+
+- 视频生成: AutoDL/Zealman ComfyUI 上的开源或本地模型工作流。
+- 批量生产前端: 本地字字动画客户端。
+- 外部辅助 API: 用户明确指定的平台、Key 和费用账户。
+
+除非用户明确选择, 不默认配置 Geeknow API Key、字字算力平台 Key、即梦/可灵/Vidu 等第三方付费模型 Key。
+
 ## 可接入能力
 
 - 图片生成/编辑: 角色设定图、场景图、首尾帧、海报。
@@ -14,6 +22,32 @@
 - 字幕: 自动断句、翻译、双语字幕、平台字幕样式。
 - 音乐音效: BGM、环境声、转场音效。
 - 后期: 画质修复、插帧、超分、调色和 HDR。
+
+## 第三方 API 通道分层
+
+### 主线: Zealman/ComfyUI 本地算力
+
+用于 Wan2.2、LTX2.3、Qwen、Z-Image、Flux/Klein、修复放大、口型、动作迁移等工作流。主要费用来自服务器实例运行时间。
+
+### 自有外部 API
+
+用于用户指定的 GPT image2、MiniMax TTS、LLM、字幕、翻译、音乐等能力。是否调用、调用哪个平台、使用哪个 Key, 都必须由用户明确决定。
+
+### 可选中转 API: Geeknow / 字字算力平台
+
+字字动画教程中提到 Geeknow 中转商插件和字字算力平台, 可接入千问、可灵、通义、Vidu 等模型。这类插件可作为备用或对照路线, 但不是必须申请, 也不是项目默认费用账户。
+
+已知插件位置约定:
+
+- 视频插件: `字字动画\_internal\plugins\video_plugins\video_plugin_geeknow`
+- 图片插件: `字字动画\_internal\plugins\image_plugins\nano_banana_plugin_geeknow`
+
+使用规则:
+
+- 不填 API Key 就不会主动调用对应平台。
+- 不把这类 Key 写入 Git、工作流 JSON 或项目文档。
+- 如需启用, 先单独记录模型、价格、输出质量、失败率和替代方案。
+- 如果我们能用 Zealman/ComfyUI 本地工作流完成同类任务, 优先走本地工作流。
 
 ## API 替换点
 

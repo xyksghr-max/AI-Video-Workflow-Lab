@@ -38,9 +38,9 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 
 这样可以绕过字字动画对某些 ComfyUI 节点识别不完整的问题。
 
-## 三种接入路线
+## 四种接入路线
 
-字字动画接入当前 AI 工具生态现在分三条路线, 后续每条工作流先判断适合哪一种。
+字字动画接入当前 AI 工具生态现在主要分四条路线, 后续每条工作流先判断适合哪一种。
 
 ### 路线 A: 字字内置 ComfyUI 工作流模式
 
@@ -121,6 +121,32 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 - 插件本体免费不等于算力免费。
 - 如果单独启动 `FLUX.2-Klein-图像快速编辑` 应用实例, 仍然会产生对应 AutoDL/GPU 实例运行费用。
 - 不要误以为它会调用 AutoDL 平台付费模型 API; 当前理解是它调用该应用实例本地服务, 主要费用仍是服务器实例费用。
+
+### 路线 D: Geeknow / 字字算力等第三方 API 插件模式
+
+适合临时调用第三方中转平台或字字算力平台提供的闭源模型, 例如教程中提到的千问、可灵、通义、Vidu、Sora 类、Seedance、Hailuo、nano banana 等模型入口。
+
+这条路线的性质:
+
+- 它是第三方 API 付费通道, 不是 Zealman/ComfyUI 本地算力。
+- 它不是当前项目必须申请的服务。
+- 它和我们自己的 GPT image2、MiniMax TTS、LLM API 一样, 只有用户明确选择并配置 Key 后才使用。
+- 只要不填写 API Key、不主动选择对应插件和模型, 就不会自动消耗该平台费用。
+
+教程中提到的插件位置:
+
+```text
+字字动画\_internal\plugins\video_plugins\video_plugin_geeknow
+字字动画\_internal\plugins\image_plugins\nano_banana_plugin_geeknow
+```
+
+当前本机字字动画客户端中可见类似默认插件目录, 但项目默认不把它们作为生产主线。后续如果启用, 必须先补充:
+
+- 平台账号和费用来源。
+- 可用模型列表和单价。
+- 输入输出限制。
+- 失败重试与手动下载方式。
+- 与 Zealman/ComfyUI 本地工作流的质量和成本对比。
 
 ## 是否需要上传到服务器
 
