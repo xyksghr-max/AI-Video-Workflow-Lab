@@ -10,5 +10,6 @@
 - `y06_next_scene_image.md`: `Y06-图像改为下一个场景图`
 - `h28_ltx23_high_motion_i2v.md`: `H28-LTX2.3-高动态图生视频`
 - `a01_qwen2512_t2i.md`: `A01-文生图-Qwen2512`
+- `p17_wan22_animate_v8.md`: `P17-动作迁移4090-48G显卡专用V8`
 
 待整理: 暂无
