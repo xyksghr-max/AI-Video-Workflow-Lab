@@ -21,6 +21,9 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 - `字字插件/image_plugins/AutoDL-zealman-ImageAPI/`
 - `字字插件/video_plugins/AutoDL-zealman-VideoAPI/`
 - `字字插件/image_plugins/flux2klein_multi_edit/`
+  - 插件名: `flux2klein多图编辑`
+  - 插件说明: OpenAI 风格 `/v1/images/edits` 多图编辑插件
+  - 支持模型: `flux-2-klein-9b`, `flux-2-klein-4b`
 - `字字插件/image_plugins/bizyair_2fen_image/`
 
 该目录是第三方下载包, 当前只作为本地参考和安装源, 不提交 Git。
@@ -35,9 +38,9 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 
 这样可以绕过字字动画对某些 ComfyUI 节点识别不完整的问题。
 
-## 两种接入路线
+## 三种接入路线
 
-字字动画接入 Zealman-ComfyUI 现在分两条路线, 后续每条工作流先判断适合哪一种。
+字字动画接入当前 AI 工具生态现在分三条路线, 后续每条工作流先判断适合哪一种。
 
 ### 路线 A: 字字内置 ComfyUI 工作流模式
 
@@ -79,6 +82,46 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 
 这条路线不依赖字字直接解析完整 ComfyUI 节点图, 更适合生产化接入。
 
+### 路线 C: FLUX.2 Klein 专用图片编辑插件模式
+
+适合快速多图图片编辑, 例如多参考图改图、角色图微调、分镜图局部重绘、画风统一等。
+
+这条路线不是导入 ComfyUI 工作流, 也不是 Zealman 面板的 `/api/workflow/generate`。它调用的是一个 OpenAI 风格图片接口:
+
+- 有参考图: `POST /v1/images/edits/jobs`
+- 无参考图: `POST /v1/images/jobs`
+- 轮询结果: `GET /v1/images/jobs/{job_id}`
+
+插件安装位置:
+
+```text
+字字动画\_internal\plugins\image_plugins\flux2klein_multi_edit
+```
+
+字字配置:
+
+- 进入 `图片模型管理 -> 自定义插件`。
+- 当前插件选择 `flux2klein多图编辑`。
+- 端点地址填写 FLUX.2 Klein 应用页面复制出来的地址, 例如 `https://...:8443/`。
+- 模型可选:
+  - `flux-2-klein-9b`
+  - `flux-2-klein-4b`
+- 输出宽高可直接设置, 例如 `1080 x 1920`。
+- 图片映射最多可添加 8 张图, 但日常建议 1-4 张, 图越多越容易牺牲质量和一致性。
+
+这条路线和 Zealman v8.51 的关系:
+
+- Zealman v8.51 内部有 Flux / Flux2 / Klein 相关 ComfyUI 工作流。
+- 但 `flux2klein_multi_edit` 插件主要面向 `FLUX.2-Klein-图像快速编辑` 这类专用应用接口。
+- 只有当某个服务器页面明确提供 `/v1/images/jobs` 或 `/v1/images/edits` 这类 OpenAI 风格接口时, 才适合用这个插件。
+- 如果只是在 Zealman v8.51 内打开普通 ComfyUI 工作流, 应走路线 A 或路线 B。
+
+费用边界:
+
+- 插件本体免费不等于算力免费。
+- 如果单独启动 `FLUX.2-Klein-图像快速编辑` 应用实例, 仍然会产生对应 AutoDL/GPU 实例运行费用。
+- 不要误以为它会调用 AutoDL 平台付费模型 API; 当前理解是它调用该应用实例本地服务, 主要费用仍是服务器实例费用。
+
 ## 是否需要上传到服务器
 
 初步判断: 不需要把这套字字插件上传到服务器。
@@ -111,6 +154,7 @@ D:\AI-Video-Workflow-Lab\字字工作流插件
 ```text
 AutoDL-zealman-ImageAPI -> image_plugins
 AutoDL-zealman-VideoAPI -> video_plugins
+flux2klein_multi_edit -> image_plugins
 ```
 
 复制后关闭并重启字字动画, 在自定义插件里选择对应插件。
