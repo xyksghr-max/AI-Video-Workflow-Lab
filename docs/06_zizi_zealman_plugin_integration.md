@@ -266,7 +266,7 @@ Workflow ID:
 
 - `G05-图生视频-Wan2.2+LightX2V最强动态`: 已整理到 `workflows/zizi_mappings/g05_wan22_lightx2v.md`
 - `H27-LTX2.3首尾帧`: 已整理到 `workflows/zizi_mappings/h27_ltx23_first_last_frame.md`
-- `H08-文生视频-LTX2.0多模态全自动16秒低配`
+- `H08-文生视频-LTX2.0多模态全自动16秒低配`: 已整理到 `workflows/zizi_mappings/h08_ltx20_t2v_multimodal_low.md`
 - `Y06-图像改为下一个场景图`
 - `H28-LTX2.3-高动态图生视频`
 - `A01-文生图-Qwen2512`
