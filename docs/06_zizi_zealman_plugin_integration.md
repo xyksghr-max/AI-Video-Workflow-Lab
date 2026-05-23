@@ -268,7 +268,7 @@ Workflow ID:
 - `H27-LTX2.3首尾帧`: 已整理到 `workflows/zizi_mappings/h27_ltx23_first_last_frame.md`
 - `H08-文生视频-LTX2.0多模态全自动16秒低配`: 已整理到 `workflows/zizi_mappings/h08_ltx20_t2v_multimodal_low.md`
 - `Y06-图像改为下一个场景图`: 已整理到 `workflows/zizi_mappings/y06_next_scene_image.md`
-- `H28-LTX2.3-高动态图生视频`
+- `H28-LTX2.3-高动态图生视频`: 已整理到 `workflows/zizi_mappings/h28_ltx23_high_motion_i2v.md`
 - `A01-文生图-Qwen2512`
 
 ## 常见故障排查
