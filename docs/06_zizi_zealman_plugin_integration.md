@@ -264,7 +264,7 @@ Workflow ID:
 
 已知需要优先整理映射的工作流:
 
-- `G05-图生视频-Wan2.2+LightX2V最强动态`
+- `G05-图生视频-Wan2.2+LightX2V最强动态`: 已整理到 `workflows/zizi_mappings/g05_wan22_lightx2v.md`
 - `H27-LTX2.3首尾帧`
 - `H08-文生视频-LTX2.0多模态全自动16秒低配`
 - `Y06-图像改为下一个场景图`
